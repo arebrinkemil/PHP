@@ -1,15 +1,8 @@
 
-<html>
-<head>
-   <link rel="stylesheet" href="style.css" media="screen">
-<head>
-<body>
-
 <?php 
-$userName = 'emil arebrink';
+$userName = $_GET["name"];
 $intialts = "";
 $numberOfVowels = 0;
-
 
 //kollar om efternamnet slutar på son
 $lastThree = substr($userName, -3);
