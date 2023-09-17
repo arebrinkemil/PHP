@@ -1,0 +1,32 @@
+<?php
+
+$menuItems = [
+  [
+    'menuText' => 'Home',
+    'link' => '/home'
+  ],
+  [
+    'menuText' => 'Products',
+    'link' => '/products'
+  ],
+];
+
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page title</title>
+</head>
+
+<body>
+
+
+</body>
+
+</html>
