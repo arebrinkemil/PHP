@@ -1,5 +1,5 @@
 <?php
-$month = 1;
+$month = 9;
 $year = 2023;
 $dateString = "$year-$month-01";
 
@@ -33,6 +33,23 @@ echo "The month starts with: $firstDay";*/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /*$red-pantone: #e63946ff;
+        $honeydew: #f1faeeff;
+        $non-photo-blue: #a8dadcff;
+        $cerulean: #457b9dff;
+        $berkeley-blue: #1d3557ff;*/
+
+        body {
+            background-color: #457b9dff;
+        }
+
+        title {
+            color: white;
+            font-size: 80px;
+            text-align: center;
+            display: block;
+        }
+
         div {
             width: 90%;
             margin: 0 auto;
@@ -48,6 +65,7 @@ echo "The month starts with: $firstDay";*/
             border-style: solid;
             border-radius: 10px;
             border-width: 4px;
+            border-color: #1d3557ff;
             display: inline-block;
             margin: 5px;
             padding: 5px;
@@ -63,12 +81,14 @@ echo "The month starts with: $firstDay";*/
             padding: 0;
             margin: 0;
             text-align: center;
+            color: #1d3557ff;
         }
 
         h3 {
             font-size: 31px;
             padding: 10px;
             margin: 0;
+            color: #1d3557ff;
         }
     </style>
 
@@ -76,8 +96,10 @@ echo "The month starts with: $firstDay";*/
 
 <body>
     <div>
-        <h1><?php echo $monthNow; ?></h1>
-        <h1><?php echo $year; ?></h1>
+        <title>
+            <?php echo $monthNow; ?>
+            <?php echo $year; ?>
+        </title>
         <ul>
             <?php
             $WeekDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -86,9 +108,9 @@ echo "The month starts with: $firstDay";*/
             for ($i = 1; $i <= $monthDays; $i++) {
                 $currentDAY = $WeekDay[($firstDayIndex + $i - 1) % 7]; /* ChatGPT ;) */
                 if ($currentDAY == "Saturday" || $currentDAY == "Sunday") {
-                    echo "<li style='background-color: red';><h2>$i</h2><h3>$currentDAY</h3></li>";
+                    echo "<li style='background-color: #e63946ff';><h2>$i</h2><h3>$currentDAY</h3></li>";
                 } else {
-                    echo "<li><h2>$i</h2><h3>$currentDAY</h3></li>";
+                    echo "<li style='background-color: #f1faeeff';><h2>$i</h2><h3>$currentDAY</h3></li>";
                 }
             }
             ?>
