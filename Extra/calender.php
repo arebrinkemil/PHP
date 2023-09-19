@@ -100,6 +100,7 @@ echo "The month starts with: $firstDay";*/
             <?php echo $monthNow; ?>
             <?php echo $year; ?>
         </title>
+
         <ul>
             <?php
             $WeekDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
