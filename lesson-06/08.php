@@ -8,7 +8,9 @@ $actors = [
 ];
 
 
-foreach ($actors as $key => $actor) {
-    echo $actor['name'];
-    echo $actor['year'];
+$x = count($actors);
+
+
+for ($i = 0; $i < $x; $i++) {
+    echo $actors[$i]['name'], " was born ", $actors[$i]['year'] . "<br />";
 };

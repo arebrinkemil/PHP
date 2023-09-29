@@ -8,5 +8,5 @@ $movie = [
 ];
 
 foreach ($movie as $info) {
-    echo $info[0]['title'];
+    echo $info['title'];
 };
