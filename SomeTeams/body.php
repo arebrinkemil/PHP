@@ -5,18 +5,16 @@ require __DIR__ . '/data.php';
 
 <table>
     <tr>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
+        <th>TEAM</th>
+        <th>LEAGUE</th>
+        <th>LAST CHAMPIONS</th>
+        <th>CITY</th>
+        <th>WEBSITE</th>
     </tr>
+
+
     <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
+        <td></td>
     </tr>
-    <tr>
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-    </tr>
+    
 </table>
