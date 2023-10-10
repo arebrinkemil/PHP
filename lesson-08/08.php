@@ -18,8 +18,7 @@ $episodes = [
 
 
 foreach ($episodes as $episode) {
-    if ($episode['month'] !== 'May' && $episode['rating' !> 9.1]) {
-        continue;
+    if ($episode['month'] == 'May' && $episode['rating' > 9.1]) {
+        echo "The episode ", $episode['title'], "aired ", $episode['day'], $episode['month'], $episode['year'];
     }
-    echo "The episode ", $episode['title'], "aired ", $episode['day'], $episode['month'], $episode['year'];
 }
