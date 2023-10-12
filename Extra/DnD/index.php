@@ -1,6 +1,7 @@
 <?php
 
 
+
 // Include necessary files
 require_once 'includes/config.php';
 require_once 'functions/navigation.php';
@@ -15,6 +16,9 @@ if (!isset($_SESSION['gameState'])) {
     ];
 }
 
+
+$outputMessage = '';
+
 // Processing User Input
 if (isset($_POST['command'])) {
     $command = strtolower(trim($_POST['command']));  // Normalize the command
@@ -26,9 +30,17 @@ if (isset($_POST['command'])) {
         case 'west':
             navigate($command);
             break;
+        case 'check':
+            $outputMessage = displayConnections();
+            break;
             // ... handle other commands as needed (like 'take' or 'use')
     }
-    header("Location: index.php");
+}
+
+
+if (isset($_POST['reset'])) {
+    $_SESSION['gameState']['playerLocation'] = 'lobby';  // Reset to starting room
+    header("Location: index.php");  // Use PRG pattern here to avoid resubmission
     exit();
 }
 
@@ -42,27 +54,36 @@ if (isset($_POST['command'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text-Based Adventure Game</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 
-<body>
+<body class="game-container">
 
-    <h1>Text-Based Adventure Game</h1>
+    <h1 class="game-title">Text-Based Adventure Game</h1>
 
-    <p>
+    <p class="game-output">
+        <?php echo $outputMessage; ?>
+    </p>
+
+    <p class="game-description">
         <?php
         $currentRoom = $_SESSION['gameState']['playerLocation'];
         echo $rooms[$currentRoom]['description'];
         ?>
     </p>
 
-    <p>Items in your inventory:
+
+
+    <p class="game-inventory">Items in your inventory:
         <?php echo empty($_SESSION['gameState']['inventory']) ? "None" : implode(', ', $_SESSION['gameState']['inventory']); ?>
     </p>
 
-    <form action="index.php" method="post">
-        <input type="text" name="command" placeholder="Enter command (e.g., 'north')">
-        <input type="submit" value="Submit">
+
+
+    <form class="game-form" action="index.php" method="post">
+        <input class="game-input" type="text" name="command" placeholder="Enter command (e.g., 'north')">
+        <input class="game-command" type="submit" value="Submit">
+        <input class="game-reset" type="submit" name="reset" value="Reset Position">
     </form>
 
 </body>

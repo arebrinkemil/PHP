@@ -24,12 +24,34 @@ function navigate($direction)
             echo "You can't go that way!";
         } else {
             $_SESSION['gameState']['playerLocation'] = $newRoom;
-            echo $rooms[$newRoom]['description'];
+            //echo $rooms[$newRoom]['description'];
         }
     } else {
         echo "There's no exit in that direction!";
     }
 }
+
+
+/**
+ * Display the connections of the current room.
+ */
+function displayConnections()
+{
+    global $rooms;
+
+    $currentRoom = $_SESSION['gameState']['playerLocation'];
+    $connections = $rooms[$currentRoom]['connections'];
+
+    if ($connections) {
+        $directions = array_keys($connections);
+        return "From here, you can go: " . implode(', ', $directions) . ".";
+    } else {
+        return "It seems there's nowhere to go from here.";
+    }
+}
+
+
+
 
 /**
  * Check if a certain condition is met, e.g., having a specific item.
