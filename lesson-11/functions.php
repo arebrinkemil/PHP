@@ -92,4 +92,40 @@ function getMap(int $width, int $height)
         </row>
 <?php
     }
+}.   function getMap(int $width, int $height): array
+{
+    $blocks = [
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFUlEQVR4AWPI7vlPEhrGGkY1jGoAAEwQ9hBqU6EFAAAAAElFTkSuQmCC',
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAACVBMVEXnWhD31rUAAABagmvSAAAANklEQVR4AWMQDU0MYXBgUGFCIdRAhNIKIKEahi67gGECE0MUiHBd5QAUCwMRTA5cDForslYAAKVzDEjCrcCGAAAAAElFTkSuQmCC',
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAALElEQVR4AWP4fm0rSYjheZQAJmJgwClOogZyAH5TMcXpoIFUQJtgHY0HUgEAQR/y28nnCdAAAAAASUVORK5CYII=',
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEVrjP/nWhD/pUIAAABg5DuiAAAAQElEQVR4AWMQDQ0NYchatWo1Q96qVbsZsqZGrWbIir8GJOKmw4h94UBiZT2IqAISq36BWFlgLkjbr90QA/4DAQBLbyVGZjjebAAAAABJRU5ErkJggg==',
+    ];
+
+    $map = [];
+
+    for ($i = 0; $i < $height; $i++) {
+        $row = [];
+        for ($j = 0; $j < $width; $j++) {
+            if ($i < ($height - 1)) {
+                $row[] = $blocks[0];
+            } else {
+                $row[] = $blocks[1];
+            }
+        }
+        $map[] = $row;
+    }
+
+    return $map;
+}.    declare(strict_types=1);
+
+require __DIR__ . '/functions.php';
+
+$map = getMap(40, 7);
+
+foreach ($map as $row) {
+    echo "<row><br>";
+    foreach ($row as $block) {
+        echo "<img src='{$block}' />";
+    }
+    echo "</row>";
 }
