@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/functions.php';
 
-$map = getMap(40, 7);
+$map = getMap(width: 40, height: 8);
 
 foreach ($map as $row) {
     echo "<row><br>";
