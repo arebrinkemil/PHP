@@ -42,7 +42,7 @@ if (isset($_POST['command'])) {
 
 if (isset($_POST['reset'])) {
     $_SESSION['gameState']['playerLocation'] = 'lobby'; // Reset to starting room
-    // unset($_SESSION['gameState']['inventory']);
+    $_SESSION['gameState']['inventory'] = [];  // Clear the inventory
     header("Location: index.php");  // Use PRG pattern here to avoid resubmission
     exit();
 }

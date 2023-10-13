@@ -9,6 +9,7 @@ define('MAX_INVENTORY_SIZE', 5);  // just as an example
 // Include essential files
 require_once 'includes/rooms.php';
 require_once 'functions/navigation.php';
+require_once 'functions/items.php';
 // ... any other includes you might have
 
 // Global settings or initialization
