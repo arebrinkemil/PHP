@@ -6,6 +6,7 @@
 require_once 'includes/config.php';
 require_once 'functions/navigation.php';
 require_once 'includes/rooms.php';
+require_once 'functions/items.php';
 
 
 // Initialize the game state if not already initialized
@@ -21,7 +22,7 @@ $outputMessage = '';
 
 // Processing User Input
 if (isset($_POST['command'])) {
-    $command = strtolower(trim($_POST['command']));  // Normalize the command
+    $command = strtolower(trim($_POST['command']));
 
     switch ($command) {
         case 'north':
@@ -33,13 +34,15 @@ if (isset($_POST['command'])) {
         case 'check':
             $outputMessage = displayConnections();
             break;
-            // ... handle other commands as needed (like 'take' or 'use')
+        case 'pickup':
+            lootItem();
     }
 }
 
 
 if (isset($_POST['reset'])) {
-    $_SESSION['gameState']['playerLocation'] = 'lobby';  // Reset to starting room
+    $_SESSION['gameState']['playerLocation'] = 'lobby'; // Reset to starting room
+    // unset($_SESSION['gameState']['inventory']);
     header("Location: index.php");  // Use PRG pattern here to avoid resubmission
     exit();
 }
