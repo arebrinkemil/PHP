@@ -70,29 +70,7 @@ function getRandomQuote(): string
     return $quotes[rand(0, count($quotes))];
 }
 
-function getMap(int $width, int $height)
-{
-
-    $blocks = [
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFUlEQVR4AWPI7vlPEhrGGkY1jGoAAEwQ9hBqU6EFAAAAAElFTkSuQmCC',
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAACVBMVEXnWhD31rUAAABagmvSAAAANklEQVR4AWMQDU0MYXBgUGFCIdRAhNIKIKEahi67gGECE0MUiHBd5QAUCwMRTA5cDForslYAAKVzDEjCrcCGAAAAAElFTkSuQmCC',
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAALElEQVR4AWP4fm0rSYjheZQAJmJgwClOogZyAH5TMcXpoIFUQJtgHY0HUgEAQR/y28nnCdAAAAAASUVORK5CYII=',
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEVrjP/nWhD/pUIAAABg5DuiAAAAQElEQVR4AWMQDQ0NYchatWo1Q96qVbsZsqZGrWbIir8GJOKmw4h94UBiZT2IqAISq36BWFlgLkjbr90QA/4DAQBLbyVGZjjebAAAAABJRU5ErkJggg==',
-    ];
-
-    for ($i = 0; $i < $height; $i++) { ?>
-        <row><br>
-            <?php for ($j = 0; $j < $width; $j++) { ?>
-                <img src="<?php if ($i < ($height - 1)) {
-                                echo $blocks[0];
-                            } else {
-                                echo $blocks[1];
-                            } ?>" />
-            <?php } ?>
-        </row>
-<?php
-    }
-}.   function getMap(int $width, int $height): array
+function getMap(int $width, int $height): array
 {
     $blocks = [
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFUlEQVR4AWPI7vlPEhrGGkY1jGoAAEwQ9hBqU6EFAAAAAElFTkSuQmCC',
@@ -116,16 +94,4 @@ function getMap(int $width, int $height)
     }
 
     return $map;
-}.    declare(strict_types=1);
-
-require __DIR__ . '/functions.php';
-
-$map = getMap(40, 7);
-
-foreach ($map as $row) {
-    echo "<row><br>";
-    foreach ($row as $block) {
-        echo "<img src='{$block}' />";
-    }
-    echo "</row>";
 }
