@@ -24,18 +24,31 @@ $outputMessage = '';
 if (isset($_POST['command'])) {
     $command = strtolower(trim($_POST['command']));
 
-    switch ($command) {
-        case 'north':
-        case 'south':
-        case 'east':
-        case 'west':
-            navigate($command);
-            break;
-        case 'check':
-            $outputMessage = displayConnections();
-            break;
-        case 'pickup':
-            lootItem();
+    if (isset($_SESSION['gameState']['pickupMode']) && $_SESSION['gameState']['pickupMode'] == true) {
+        if ($command == "back") {
+            unset($_SESSION['gameState']['pickupMode']);
+        } else {
+            lootItem($command);
+            unset($_SESSION['gameState']['pickupMode']);
+        }
+    } else {
+        switch ($command) {
+            case 'north':
+            case 'south':
+            case 'east':
+            case 'west':
+                navigate($command);
+                break;
+            case 'check':
+                $outputMessage = displayConnections();
+                break;
+            case 'pickup':
+                pickup();
+                break;
+            case 'scan':
+                scan();
+                break;
+        }
     }
 }
 

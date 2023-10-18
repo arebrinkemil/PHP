@@ -5,59 +5,61 @@
 
 $rooms = array(
     "lobby" => array(
-        "description" => "The entrance of 'The Nexus'. Flickering neon lights and a cold, sterile atmosphere greet you. A rusty knife lies on a bench nearby.",
+        "description" => "The entrance of 'The Nexus'. Flickering neon lights paint the cracked floors, and the hum of distant machinery resonates through the cold, sterile atmosphere.",
         "connections" => array("north" => "security_checkpoint"),
         "items" => array("rusty_knife"),
     ),
     "security_checkpoint" => array(
-        "description" => "A dimly lit checkpoint. A guard stands watch, eyeing you suspiciously.",
+        "description" => "Monitors cast a pale glow on the dimly lit checkpoint. Wiring snakes across the ceiling, while drones whir overhead. The guard's cybernetic eye scans for intruders.",
         "connections" => array("north" => "tech_lab", "south" => "lobby"),
         "enemies" => array("guard"),
         "items" => array("baton"),
     ),
     "tech_lab" => array(
-        "description" => "A room filled with malfunctioning robots. Sparks fly from a console, on which lies an Electro-Glove.",
+        "description" => "Servers stack high, their LEDs blinking erratically. Robotic arms hang idle beside malfunctioning assembly lines. A hologram flickers, showcasing the latest tech advancements.",
         "connections" => array("north" => "residential_quarters", "south" => "security_checkpoint"),
         "items" => array("electro_glove"),
     ),
     "residential_quarters" => array(
-        "description" => "A corridor lined with doors. Muffled voices echo. A locked door stands at the end with a sign 'Armory'.",
+        "description" => "Holographic door numbers shimmer in this corridor, with the soft hum of AI-assisted appliances behind them. Distant synth music is interrupted by the muted chatter of residents discussing the latest netrunner gossip.",
         "connections" => array("north" => "armory", "east" => "gang_hideout", "west" => "vr_arcade", "south" => "tech_lab"),
         "locked" => array("north"),
+
     ),
     "armory" => array(
-        "description" => "Walls mounted with futuristic weapons. An enticing cyber-enhanced weapon sits on a pedestal.",
+        "description" => "Reflective surfaces gleam, showing an array of high-tech weaponry. Automated systems calibrate weapons, while cyber-augmented mannequins display armored suits with neon highlights.",
         "connections" => array("south" => "residential_quarters"),
         "items" => array("laser_sword"),
     ),
     "gang_hideout" => array(
-        "description" => "Graffiti-covered walls and shady figures. The gang leader lounges on a makeshift throne.",
+        "description" => "Dim red lights punctuate the haze, illuminating graffiti murals of cyberpunk legends. Cables and tech junk litter the floor, as gang members exchange encrypted data chips.",
         "connections" => array("west" => "residential_quarters", "east" => "black_market"),
         "enemies" => array("gang_leader"),
         "items" => array("access_card"),
     ),
     "vr_arcade" => array(
-        "description" => "Rows of VR booths with players engrossed in games. There's a cabinet labeled 'Staff Only'.",
+        "description" => "Neon signs flash advertisements for the latest VR experiences. Users, connected to high-tech rigs, navigate digital realms, their expressions alternating between delight and horror.",
         "connections" => array("east" => "residential_quarters"),
         "items" => array("health_pack"),
     ),
     "black_market" => array(
-        "description" => "A bustling underground market. Vendors peddle rare items. A Plasma Cannon is displayed at a booth.",
+        "description" => "Stalls with holographic displays showcase rare cyberware. Shady deals transpire in the shadows, and the air carries the scent of exotic tech. A vendor haggles with a netrunner over a piece of forbidden software.",
         "connections" => array("west" => "gang_hideout", "north" => "executive_suites"),
         "items" => array("plasma_cannon"),
     ),
     "executive_suites" => array(
-        "description" => "Lavish rooms where the elite reside. Guards patrol diligently. One seems to have a special key.",
+        "description" => "Opulence meets tech in these lavish rooms. Crystal chandeliers have been replaced by dynamic light shows. The elite, adorned with the finest cyberware, converse about the state of the digital realm.",
         "connections" => array("south" => "black_market", "north" => "boss_lair"),
         "enemies" => array("elite_guard"),
         "items" => array("boss_room_key"),
     ),
     "boss_lair" => array(
-        "description" => "The heart of 'The Nexus'. A vast chamber with the boss seated, awaiting you.",
+        "description" => "A vast chamber illuminated by massive screens, each displaying streams of data. In the center, surrounded by augmented bodyguards, the boss awaits on a digital throne, interfaces swirling around them.",
         "connections" => array("south" => "executive_suites"),
         "enemies" => array("boss"),
     )
 );
+
 
 
 
