@@ -1,6 +1,6 @@
 <?php
 
-
+require_once 'enemies.php';
 
 
 $rooms = array(
@@ -13,7 +13,11 @@ $rooms = array(
     "security_checkpoint" => array(
         "description" => "Monitors cast a pale glow on the dimly lit checkpoint. Wiring snakes across the ceiling, while drones whir overhead. The guard's cybernetic eye scans for intruders.",
         "connections" => array("north" => "tech_lab", "south" => "lobby"),
-        "enemies" => array("guard"),
+        "enemies" => array(
+            "guard" => array(
+                "current_health" => $enemies["guard"]["health"]
+            )
+        ),
         "items" => array("baton"),
         "background" => "url(assets/images/image2.png)",
     ),
@@ -69,6 +73,9 @@ $rooms = array(
         "background" => "url(assets/images/image10.png)",
     )
 );
+
+
+
 
 
 
