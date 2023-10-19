@@ -9,7 +9,7 @@ function scan()
     $currentRoom = $_SESSION['gameState']['playerLocation'];
     if (isset($rooms[$currentRoom]['items'])) {
         foreach ($rooms[$currentRoom]['items'] as $item) {
-            echo $item . "<br>";
+            return $item . "<br>";
         }
     }
 }
@@ -19,15 +19,21 @@ function pickup()
 {
     global $rooms;
     $currentRoom = $_SESSION['gameState']['playerLocation'];
+    $message = "";
+
     if (isset($rooms[$currentRoom]['items'])) {
-        echo "what do you want to pickup?";
+        $message .= "What do you want to pickup?<br>";
+
         foreach ($rooms[$currentRoom]['items'] as $item) {
-            echo $item . "<br>";
+            $message .= $item . "<br>";
         }
+
         $_SESSION['gameState']['pickupMode'] = true;
     } else {
-        echo "no items to be pickedup";
+        $message = "No items to be picked up.";
     }
+
+    return $message;
 }
 
 
@@ -41,15 +47,15 @@ function lootItem($chosenItem)
 
         if (count($_SESSION['gameState']['inventory']) < MAX_INVENTORY_SIZE) {
             $_SESSION['gameState']['inventory'][] = $chosenItem;
-            echo "You picked up $chosenItem!";
+            return "You picked up $chosenItem!";
 
             // Remove the item from the room
             $key = array_search($chosenItem, $rooms[$currentRoom]['items']);
             unset($rooms[$currentRoom]['items'][$key]);
         } else {
-            echo "Your inventory is full!";
+            return "Your inventory is full!";
         }
     } else {
-        echo "That item isn't here to pick up!";
+        return "That item isn't here to pick up!";
     }
 }

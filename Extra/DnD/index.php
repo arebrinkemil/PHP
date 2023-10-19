@@ -11,7 +11,9 @@ require_once 'functions/combat.php';
 if (isset($_POST['reset'])) {
     $_SESSION['gameState']['playerLocation'] = 'lobby'; // Reset to starting room
     $_SESSION['gameState']['inventory'] = [];
+    $_SESSION['gameState']['playerHealth'] = 77;
     $_SESSION['listCommands'] = []; // Clear the inventory
+    $_SESSION['listCommands'] = [];
     header("Location: index.php");  // Use PRG pattern here to avoid resubmission
     exit();
 }
@@ -21,14 +23,20 @@ if (!isset($_SESSION['gameState'])) {
     $_SESSION['gameState'] = [
         'playerLocation' => 'lobby',  // Starting room, can change based on your design
         'inventory' => [],
-        'playerHealth' => 50,
+        'playerHealth' => 77,
     ];
 }
+if (isset($_SESSION['gameState']['playerHealth'])) {
+    echo $_SESSION['gameState']['playerHealth'];
+}
 
-
-$outputMessage = '';
+$outputMessage = [];
 if (!isset($_SESSION['listCommands'])) {
     $_SESSION['listCommands'] = [];
+}
+
+if (!isset($_SESSION['outputMessage'])) {
+    $_SESSION['outputMessage'] = [];
 }
 
 // Processing User Input
@@ -51,7 +59,7 @@ if (isset($_POST['command'])) {
 
             $currentRoom = $_SESSION['gameState']['playerLocation'];
             if (isset($rooms[$currentRoom]['enemies'][$enemyName])) {
-                engageCombat($enemyName, $rooms[$currentRoom]);
+                $_SESSION['listCommands'][] = engageCombat($enemyName);
             } else {
                 echo "There's no enemy named $enemyName here.";
             }
@@ -62,16 +70,16 @@ if (isset($_POST['command'])) {
                 case 'south':
                 case 'east':
                 case 'west':
-                    navigate($command);
+                    $_SESSION['listCommands'][] = navigate($command);
                     break;
                 case 'check':
-                    $outputMessage = displayConnections();
+                    $_SESSION['listCommands'][] = displayConnections();
                     break;
                 case 'pickup':
-                    pickup();
+                    $_SESSION['listCommands'][] = pickup();
                     break;
                 case 'scan':
-                    scan();
+                    $_SESSION['listCommands'][] = scan();
                     break;
                 default:
                     echo "command not recognized";
@@ -115,44 +123,50 @@ if (isset($rooms[$currentRoom]['background'])) {
 </head>
 
 <body class="game-container">
-    <main>
+    <div class="container">
+        <div class="header">
+            <h1 class="game-title">Text-Based Adventure Game</h1>
+        </div>
+        <div class="main-content">
+            <div class="aside">
+                <p class="game-output">
+                    <?php if (!isset($_SESSION['outputMessage'])) {
+                        echo $_SESSION['listCommands'][0];
+                    }
+                    ?>
+                </p>
 
-        <h1 class="game-title">Text-Based Adventure Game</h1>
+                <p class="game-output">
+                <ul>
+                    <?php foreach ($_SESSION['listCommands'] as $command) : ?>
+                        <li><?php echo $command; ?></li>
+                    <?php endforeach ?>
+                </ul>
+                </p>
+            </div>
 
-        <p class="game-output">
-            <?php echo $outputMessage; ?>
-        </p>
-
-        <p class="game-output">
-        <ul>
-            <?php foreach ($_SESSION['listCommands'] as $command) : ?>
-                <li><?php echo $command; ?></li>
-            <?php endforeach ?>
-        </ul>
-        </p>
-
-
-        <p class="game-description">
-            <?php
-            $currentRoom = $_SESSION['gameState']['playerLocation'];
-            echo $rooms[$currentRoom]['description'];
-            ?>
-        </p>
+            <div class="article">
+                <p class="game-description">
+                    <?php
+                    $currentRoom = $_SESSION['gameState']['playerLocation'];
+                    echo $rooms[$currentRoom]['description'];
+                    ?>
+                </p>
 
 
 
-        <p class="game-inventory">Items in your inventory:
-            <?php echo empty($_SESSION['gameState']['inventory']) ? "None" : implode(', ', $_SESSION['gameState']['inventory']); ?>
-        </p>
-
-
-
-        <form class="game-form" action="index.php" method="post">
-            <input class="game-input" type="text" name="command" placeholder="Enter command (e.g., 'north')">
-            <input class="game-command" type="submit" value="Submit">
-            <input class="game-reset" type="submit" name="reset" value="Reset Position">
-        </form>
-    </main>
+                <p class="game-inventory">Items in your inventory:
+                    <?php echo empty($_SESSION['gameState']['inventory']) ? "None" : implode(', ', $_SESSION['gameState']['inventory']); ?>
+                </p>
+            </div>
+        </div>
+        <div class="footer">
+            <form class="game-form" action="index.php" method="post">
+                <input class="game-input" type="text" name="command" placeholder="Enter command (e.g., 'north')">
+                <input class="game-command" type="submit" value="Submit">
+                <input class="game-reset" type="submit" name="reset" value="Reset Position">
+            </form>
+        </div>
 
 </body>
 

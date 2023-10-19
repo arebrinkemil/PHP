@@ -21,13 +21,13 @@ function navigate($direction)
 
             !meetsCondition($rooms[$currentRoom]['connectionConditions'][$direction])
         ) {
-            echo "You can't go that way!";
+            return "You can't go that way!";
         } else {
             $_SESSION['gameState']['playerLocation'] = $newRoom;
             //echo $rooms[$newRoom]['description'];
         }
     } else {
-        echo "There's no exit in that direction!";
+        return "There's no exit in that direction!";
     }
 }
 

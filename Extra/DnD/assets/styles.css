@@ -1,81 +1,80 @@
-main {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-/* Game Container Styles */
-.game-container {
-  font-family: "Arial", sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
-  height: 100vh;
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;
+  color: white;
   overflow: hidden;
 }
 
-/* Game Title Styles */
-.game-title {
-  font-size: 2.5em;
-  text-shadow: 2px 2px 4px #ff0000;
-  margin-bottom: 20px;
+* {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 2px;
+  border-color: antiquewhite;
 }
 
-/* Game Description & Inventory Styles */
-.game-description,
-.game-inventory {
-  text-shadow: 1px 1px 2px #00ff00;
-  font-size: 1.2em;
-  text-align: center;
-  max-width: 600px;
-}
-
-/* Game Form Styles */
-.game-form {
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
+  height: 100vh; /* Assuming you want it to take up the full viewport height */
+}
+
+.header,
+.footer {
+  height: 10%; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.aside {
+  width: 25%; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 
-/* Game Input Styles */
-.game-input {
-  background-color: #333;
-  color: #e0e0e0;
-  border: 1px solid #00ff00;
+.footer {
   padding: 10px;
-  font-size: 1em;
-  width: 300px;
-  margin-bottom: 10px;
 }
 
-/* Shared Button Styles */
+.game-form {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.game-input {
+  flex: 1;
+  height: 50px;
+  font-size: 18px;
+  caret-color: blue;
+  caret-width: thick;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+}
+
 .game-command,
 .game-reset {
-  background-color: #222;
-  color: #00ff00;
-  border: 1px solid #00ff00;
-  padding: 10px 20px;
-  cursor: pointer;
-  text-shadow: 1px 1px 2px #00ff00;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.game-command:hover,
-.game-reset:hover {
-  background-color: #00ff00;
-  color: #121212;
-  transform: scale(1.05);
-}
-
-/* Specific Reset Button Styles */
-.game-reset {
-  margin-top: 10px;
-  background-color: #ff0000;
-  color: #121212;
-  border: 1px solid #ff0000;
-  text-shadow: 1px 1px 2px #ff0000;
+  height: 50px;
+  margin-left: 10px;
 }

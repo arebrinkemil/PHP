@@ -4,7 +4,7 @@
 session_start();
 
 // Game settings or constants (if any)
-define('MAX_INVENTORY_SIZE', 5);  // just as an example
+define('MAX_INVENTORY_SIZE', 3);  // just as an example
 
 // Include essential files
 require_once 'includes/rooms.php';
