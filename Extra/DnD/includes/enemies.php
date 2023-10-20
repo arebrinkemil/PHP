@@ -18,6 +18,12 @@ $enemies = array(
         "description" => "A large robotic warrior, armed with missiles and lasers.",
         "health" => 150,
         "damage" => 30
+    ),
+    "boss" => array(
+        "name" => "The boss",
+        "description" => "The boss of 'The Nexus",
+        "health" => 250,
+        "damage" => 50
     )
     // ... add more enemies as needed
 );

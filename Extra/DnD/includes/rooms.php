@@ -43,7 +43,11 @@ $rooms = array(
     "gang_hideout" => array(
         "description" => "Dim red lights punctuate the haze, illuminating graffiti murals of cyberpunk legends. Cables and tech junk litter the floor, as gang members exchange encrypted data chips.",
         "connections" => array("west" => "residential_quarters", "east" => "black_market"),
-        "enemies" => array("gang_leader"),
+        "enemies" => array(
+            "mech_warrior" => array(
+                "current_health" => $enemies["mech_warrior"]["health"]
+            )
+        ),
         "items" => array("access_card"),
         "background" => "url(assets/images/image6.png)",
     ),
@@ -69,7 +73,11 @@ $rooms = array(
     "boss_lair" => array(
         "description" => "A vast chamber illuminated by massive screens, each displaying streams of data. In the center, surrounded by augmented bodyguards, the boss awaits on a digital throne, interfaces swirling around them.",
         "connections" => array("south" => "executive_suites"),
-        "enemies" => array("boss"),
+        "enemies" => array(
+            "boss" => array(
+                "current_health" => $enemies["boss"]["health"]
+            )
+        ),
         "background" => "url(assets/images/image10.png)",
     )
 );
