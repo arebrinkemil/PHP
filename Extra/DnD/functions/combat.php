@@ -32,6 +32,8 @@ function engageCombat($enemyName)
 
         if ($playerHealth <= 0) {
             $combatLog .= "You have been defeated by the $enemyName!<br>";
+            header("Location: /dead.php");
+            die();
             return $combatLog;
         }
     }

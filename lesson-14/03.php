@@ -14,6 +14,6 @@ $emails = [
 
 foreach ($emails as $email) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "the email " . $email . " is valid" . /n;
+        echo "the email " . $email . " is valid" ;
     }
 }
