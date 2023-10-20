@@ -74,10 +74,14 @@ body {
 }
 
 .game-coms {
-  font-size: 2rem;
-  max-height: 40vh;
-  overflow: scroll;
-  /*lägg till så scrolllen är åt andra hållet.*/
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.prompt {
+  position: absolute;
+  font-size: 24px;
+  transition: all 0.3s ease;
 }
 
 .button-container {

@@ -180,11 +180,16 @@ if (isset($rooms[$currentRoom]['background'])) {
                 </p>
 
 
-                <ul class="game-coms">
-                    <?php foreach ($_SESSION['outputMessage'] as $message) : ?>
-                        <li><?php echo $message; ?></li>
-                    <?php endforeach ?>
-                </ul>
+
+                <div class="game-coms">
+                    <?php
+                    $reversedMessages = array_reverse($_SESSION['outputMessage']);
+                    foreach ($reversedMessages as $index => $message) :
+                    ?>
+                        <div class='prompt' style='opacity: <?= (1 - $index * 0.2) ?>; transform: translateY(<?= $index * -30 ?>px);'><?= $message ?></div>
+                    <?php endforeach; ?>
+                </div>
+
 
 
 
