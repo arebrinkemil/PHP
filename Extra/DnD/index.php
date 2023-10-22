@@ -29,9 +29,9 @@ if (!isset($_SESSION['gameState'])) {
         'playerHealth' => 77,
     ];
 }
-if (isset($_SESSION['gameState']['playerHealth'])) {
-    echo $_SESSION['gameState']['playerHealth'];
-}
+// if (isset($_SESSION['gameState']['playerHealth'])) {
+//     echo $_SESSION['gameState']['playerHealth'];
+// }
 
 $outputMessage = [];
 if (!isset($_SESSION['listCommands'])) {
