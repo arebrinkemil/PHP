@@ -5,7 +5,9 @@ $enemies = array(
         "name" => "Guard",
         "description" => "A stern-looking guard, eyes sharp and alert.",
         "health" => 50,
-        "damage" => 10
+        "damage" => 10,
+        "itemDrops" => array("access_card")
+
     ),
     "cyborg_assassin" => array(
         "name" => "Cyborg Assassin",
@@ -25,5 +27,4 @@ $enemies = array(
         "health" => 250,
         "damage" => 50
     )
-    // ... add more enemies as needed
 );
