@@ -13,9 +13,13 @@ $rooms = array(
     "security_checkpoint" => array(
         "description" => "Monitors cast a pale glow on the dimly lit checkpoint. Wiring snakes across the ceiling, while drones whir overhead. The guard's cybernetic eye scans for intruders.",
         "connections" => array("north" => "tech_lab", "south" => "lobby"),
+        "locked" => array(
+            "north" => "access_card"
+        ),
         "enemies" => array(
             "guard" => array(
-                "current_health" => $enemies["guard"]["health"]
+                "current_health" => $enemies["guard"]["health"],
+                "status" => "alive" // or "defeated"
             )
         ),
         "items" => array("baton"),

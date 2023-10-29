@@ -29,9 +29,9 @@ if (!isset($_SESSION['gameState'])) {
         'playerHealth' => 77,
     ];
 }
-if (isset($_SESSION['gameState']['playerHealth'])) {
-    echo $_SESSION['gameState']['playerHealth'];
-}
+// if (isset($_SESSION['gameState']['playerHealth'])) {
+//     echo $_SESSION['gameState']['playerHealth'];
+// }
 
 $outputMessage = [];
 if (!isset($_SESSION['listCommands'])) {
@@ -196,6 +196,7 @@ if (isset($rooms[$currentRoom]['background'])) {
 
                 <p class="game-inventory">Inventory:
                     <?php echo empty($_SESSION['gameState']['inventory']) ? "None" : implode(', ', $_SESSION['gameState']['inventory']); ?>
+                    <?php var_dump($_SESSION['gameState']['inventory'])  ?>
                 </p>
             </div>
         </div>
