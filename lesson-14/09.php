@@ -27,7 +27,7 @@
     <div class="prompt-container">
         <?php
         // Suppose $prompts is your array of prompts.
-        $prompts = ["Do this first", "Then do this", "Finally, do this", "yee yoo"];
+        $prompts = ["Do this first", "Then do this", "Finally, do this, yee"];
 
         foreach ($prompts as $index => $prompt) {
             echo "<div class='prompt' style='opacity: " . (1 - $index * 0.2) . "; transform: translateY(" . ($index * -30) . "px);'>$prompt</div>";
