@@ -1,8 +1,8 @@
 <?php
 
 // $dir = '/files';
-$files = scandir('files');
 
+$files = scandir('files');
 function sanitizeName($name)
 {
     $CleanName = trim(strtolower(filter_var($name, FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $text = "Please select the text file you want to view";
 }
 
+$files = scandir('files');
 
 
 ?>
