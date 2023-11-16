@@ -1,0 +1,34 @@
+{
+  "actors": [
+    {
+      "name": "Lena Dunham",
+      "character": "Hannah Horvath",
+      "tmdb_url": "https://www.themoviedb.org/person/139135-lena-dunham",
+      "image_url": "https://image.tmdb.org/t/p/w1280/zeat3H7eonT5CuUl0SQMk2XcKKN.jpg"
+    },
+    {
+      "name": "Adam Driver",
+      "character": "Adam Sackler",
+      "tmdb_url": "https://www.themoviedb.org/person/1023139-adam-driver",
+      "image_url": "https://image.tmdb.org/t/p/w1280/rsjwgpV2OukxOJ9HEiEyf4qu1vR.jpg"
+    },
+    {
+      "name": "Allison Williams",
+      "character": "Marnie Michaels",
+      "tmdb_url": "https://www.themoviedb.org/person/1255540-allison-williams",
+      "image_url": "https://image.tmdb.org/t/p/w1280/7sbW6EhAjBmpJ7ZEFlHRlEf6qCQ.jpg"
+    },
+    {
+      "name": "Zosia Mamet",
+      "character": "Shoshanna Shapiro",
+      "tmdb_url": "https://www.themoviedb.org/person/206966-zosia-mamet",
+      "image_url": "https://image.tmdb.org/t/p/w1280/iqqfnWMFXg7PQSreE1mk3V3SYMr.jpg"
+    },
+    {
+      "name": "Jemima Kirke",
+      "character": "Jessa Johansson",
+      "tmdb_url": "https://www.themoviedb.org/person/139151-jemima-kirke",
+      "image_url": "https://image.tmdb.org/t/p/w1280/tPBv42wgYOkTBWzRndEz50hTtdE.jpg"
+    }
+  ]
+}
