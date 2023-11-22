@@ -1,0 +1,31 @@
+{
+    "horses": [
+        {
+            "id": "a992e0",
+            "name": "Utah Bulwark",
+            "birthday": "2006-10-12",
+            "color": "black",
+            "records": {
+                "1000m": "1.14.4"
+            }
+        },
+        {
+            "id": "75424c",
+            "name": "Ego boy",
+            "birthday": "1970-02-26",
+            "color": "greyish",
+            "records": {
+                "500m": "1.08.0",
+                "1000m": "1.11.2",
+                "2640m": "1.13.8"
+            }
+        },
+        {
+            "id": "283c2e",
+            "name": "Boko Boko",
+            "birthday": "2017-03-09",
+            "color": "white",
+            "owner": "Stall Högåsen"
+        }
+    ]
+}
