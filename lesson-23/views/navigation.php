@@ -4,7 +4,7 @@
 
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/index.php' || '/' ? 'active' : '' ?>" href="/index.php">Home</a>
+                <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/index.php' ? 'active' : '' ?>" href="/index.php">Home</a>
             </li>
 
             <li class="nav-item">

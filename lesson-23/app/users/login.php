@@ -24,7 +24,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     } else {
         if (password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user;
-            redirect('/');
+            redirect('/index.php');
         } else {
             echo "wrong password";
         }
