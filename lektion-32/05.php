@@ -16,4 +16,4 @@ $progs = $school->getPrograms();
         <li><?php echo $prog->name; ?></li>
     <?php endforeach; ?>
 
-</ul>
+</ul>       
