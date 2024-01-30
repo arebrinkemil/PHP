@@ -4,8 +4,27 @@ require __DIR__ . '/vendor/autoload.php';
 
 use App\Database\Connection;
 use App\Database\QueryBuilder;
+use App\Http\Router;
 
 $database = require __DIR__ . '/bootstrap.php';
+
+
+
+$router = new Router([
+    '/' => __DIR__ . '/controllers/pokedex.php',
+    '/pokemon' => __DIR__ . '/controllers/pokemon.php',
+]);
+
+
+$currentUri = $_SERVER['REQUEST_URI'];
+
+$controllerFile = $router->direct($currentUri);
+
+require $controllerFile;
+
+
+
+
 
 
 
@@ -30,6 +49,6 @@ $database = require __DIR__ . '/bootstrap.php';
 // echo $pokemon->name;
 
 
-$pokemon = $database->select()->from('pokemon')->where('id', '=', '18')->first();
+// $pokemon = $database->select()->from('pokemon')->where('id', '=', '18')->first();
 
-echo $pokemon->name;
+// echo $pokemon->name;
