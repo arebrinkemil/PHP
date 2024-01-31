@@ -4,9 +4,9 @@
 declare(strict_types=1);
 
 return ['database' => [
-    'driver' => 'mysql',
-    'host' => '127.0.0.1',
-    'database' => 'pokemon',
-    'username' => 'emila',
-    'password' => 'Krabba300!!',
+    'driver' => $_ENV['DATABASE_DRIVER'],
+    'host' => $_ENV['DATABASE_HOST'],
+    'database' => $_ENV['DATABASE_NAME'],
+    'username' => $_ENV['DATABASE_USER'],
+    'password' => $_ENV['DATABASE_PASSWORD'],
 ]];

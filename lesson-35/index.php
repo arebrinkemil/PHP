@@ -5,6 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 use App\Database\Connection;
 use App\Database\QueryBuilder;
 use App\Http\Router;
+use App\Http\Request;
 
 $database = require __DIR__ . '/bootstrap.php';
 
@@ -16,12 +17,12 @@ $router = new Router([
 ]);
 
 
-$currentUri = $_SERVER['REQUEST_URI'];
-
-$controllerFile = $router->direct($currentUri);
-
-require $controllerFile;
-
+try {
+    require $router->direct(App\Http\Request::uri());
+} catch (\App\Exceptions\NotFoundHttpException $e) {
+    echo $e->getMessage();
+    require view('404');
+}
 
 
 

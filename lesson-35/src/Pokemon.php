@@ -6,9 +6,18 @@ namespace App;
 
 class Pokemon
 {
-    public function __construct(
-        public int $id,
-        public string $name,
-    ) {
+    public $id;
+    public $name;
+
+    public function __construct(int $id, string $name)
+    {
+        $this->id = $id;
+        $this->name = $name;
+    }
+
+    public function getImageUrl(): string
+    {
+        $name = strtolower($this->name);
+        return "https://img.pokemondb.net/sprites/bank/normal/{$name}.png";
     }
 }

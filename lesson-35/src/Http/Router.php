@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http;
 
-use App\Exceptions\NotFoundException;
+use App\Exceptions\NotFoundHttpException;
 
 
 class Router
@@ -20,6 +20,6 @@ class Router
             return $this->routes[$uri];
         }
 
-        throw new NotFoundException('No route defined for this URI.');
+        throw new NotFoundHttpException('No route defined for this URI.');
     }
 }

@@ -9,13 +9,13 @@ $id = $_GET['id'] ?? 1;
 
 $pokemon = $database->select()->from('pokemon')->where('id', '=', $id)->get();
 
+$pokemon = $pokemon[0];
+
 if ($pokemon === null) {
     throw new NotFoundException("Pokemon with ID {$id} not found");
 }
 
-$pokemon = array_map(function ($monster) {
-    return new Pokemon((int) $monster->id, $monster->name);
-}, $pokemon);
+$pokemon = new Pokemon((int) $pokemon->id, $pokemon->name);
 
 
 require view('pokemon');
