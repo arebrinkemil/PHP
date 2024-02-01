@@ -33,8 +33,6 @@ class RouterTest extends TestCase
 
         ]);
 
-
-
         $this->expectException(NotFoundHttpException::class);
         $router->direct("/hehhe");
     }
