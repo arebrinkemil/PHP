@@ -1,0 +1,15 @@
+{
+  "name": "emila/oop",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "arebrinkemil",
+      "email": "60137005+arebrinkemil@users.noreply.github.com"
+    }
+  ],
+  "require": {}
+}
