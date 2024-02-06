@@ -24,9 +24,23 @@ class Cart
 
     public function addToCart($product): void
     {
-        $this->products[] = $product;
-    }
+        $found = false;
+        foreach ($this->products as &$cartProduct) {
+            if ($cartProduct->getName() === $product->getName()) {
+                $cartProduct->setQuantity($cartProduct->getQuantity() + 1);
+                $found = true;
+                break;
+            }
+        }
 
+        if (!$found) {
+            $productClone = clone $product;
+            $productClone->setQuantity(1);
+            $this->products[] = $productClone;
+        }
+
+        $product->setQuantity($product->getQuantity() - 1);
+    }
     public function removeProduct($product): void
     {
         foreach ($this->products as $key => $value) {

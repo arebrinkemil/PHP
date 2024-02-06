@@ -27,6 +27,11 @@ class Product
     {
         return $this->quantity;
     }
+
+    public function setQuantity(int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
 }
 
 
